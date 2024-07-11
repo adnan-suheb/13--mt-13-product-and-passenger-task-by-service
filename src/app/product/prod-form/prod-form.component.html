@@ -1,0 +1,21 @@
+
+<mat-card class="mb-4">
+    <mat-card-content>
+        <form #prodForm="ngForm" (ngSubmit)="onFormSumit()">
+            <mat-form-field appearance="fill">
+                <mat-label>Enter Product Name</mat-label>
+                <input matInput ngModel name="pname" #pname="ngModel" required>
+                <mat-error *ngIf="pname.touched && pname.hasError('required')">Product Name Can Not Be Empty!!!</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Enter Product Details</mat-label>
+                <input matInput ngModel name="pdetails" required #pdetails="ngModel">
+                <mat-error *ngIf="pdetails.touched && pdetails.hasError('required')">Product Details Are Required!!!</mat-error>
+
+            </mat-form-field>
+            <div align="end">
+                <button type="submit" mat-raised-button color="primary">Add Product</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

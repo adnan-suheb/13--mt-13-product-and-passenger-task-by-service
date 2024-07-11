@@ -1,0 +1,26 @@
+<ng-container *ngIf="getProductObj;else noProdObj">
+    <mat-card class="mb-4">
+        <mat-card-title>
+            {{getProductObj.pname}}
+        </mat-card-title>
+        <mat-card-content>
+            <p>
+                The Product Name Is <strong>{{getProductObj.pname}}</strong> And Its Status Is <strong>{{getProductObj.pstatus}}.</strong>
+            </p>
+            <p>
+                <strong>Details : {{getProductObj.pdetails}}</strong>
+            </p>
+        </mat-card-content>
+        <mat-divider></mat-divider>
+        <mat-card-actions class="d-flex justify-content-around">
+            <button mat-raised-button color="primary" (click)="onStatusUpdate(prodStatusEnum.InProgress)">In Progress</button>
+            <button mat-raised-button color="primary" (click)="onStatusUpdate(prodStatusEnum.Dispatched)">Dispatched</button>
+            <button mat-raised-button color="primary" (click)="onStatusUpdate(prodStatusEnum.Delivered)">Delivered</button>
+        </mat-card-actions>
+
+    </mat-card>
+</ng-container>
+
+<ng-template #noProdObj>
+    <p class="alert alert-warning">No Product Data Found!!!</p>
+</ng-template>

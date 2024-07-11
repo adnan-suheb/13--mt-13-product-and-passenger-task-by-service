@@ -1,0 +1,27 @@
+<ng-container>
+    <mat-card class="mb-4">
+        <mat-card-content>
+            <div class="form-group d-flex align-items-center">
+                <label for="pname" class="sr-only">Enter Passenger Name</label>
+                <span class="circle mx-2" [ngClass]="{
+                    'bg-success':getPassengerObj.checkInDate,
+                    'bg-danger':!getPassengerObj.checkInDate
+                }"></span>
+                <input #pname [value]="getPassengerObj.fname" [disabled]="!isinEditMode" type="text"
+                    class="form-control">
+            </div>
+            <p>
+                Check In Data : <strong>{{getPassengerObj.checkInDate|date}}</strong>
+            </p>
+            <p>
+                Children : <strong>{{getPassengerObj.child}}</strong>
+            </p>
+        </mat-card-content>
+        <mat-card-actions class="d-flex justify-content-between">
+            <button *ngIf="!isinEditMode" mat-raised-button color="primary" (click)="isinEditMode=true">Edit</button>
+            <button *ngIf="isinEditMode" mat-raised-button color="primary"
+                (click)="isinEditMode=false; onUpdate(pname)">Done</button>
+            <button mat-raised-button color="warn" (click)="onRemove(getPassengerObj)">Remove</button>
+        </mat-card-actions>
+    </mat-card>
+</ng-container>

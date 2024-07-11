@@ -1,0 +1,13 @@
+
+.circle{
+    width: 10px;
+    height: 10px;
+    background-color: #ff0000;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+input:disabled{
+    background-color: #fff;
+    border: none;
+}

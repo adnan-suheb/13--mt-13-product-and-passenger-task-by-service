@@ -1,0 +1,22 @@
+<h2 class="p-2 bg-primary text-center text-white" style="border-radius: 5px;">Passenger Task Using Service </h2>
+
+<app-passenger-list [getTotalCount]="totalCount" [getCheckInCount]="checkInCount"></app-passenger-list>
+
+<mat-card class="mb-4" *ngIf="passengerArr.length>0;else noPassengerData">
+    <mat-card-title>
+        <mat-list class="matList">
+            <mat-list-item *ngFor="let passenger of passengerArr">
+                {{passenger.fname}}
+                <mat-divider></mat-divider>
+            </mat-list-item>
+        </mat-list>
+    </mat-card-title>
+</mat-card>
+<ng-template #noPassengerData>
+    <mat-card class="mb-5">
+        <p class="alert alert-warning"> No Passenger Data Found!!!</p>
+    </mat-card>
+</ng-template>
+
+<app-passenger-card [getPassengerObj]="passenger" *ngFor="let passenger of passengerArr"
+    (emmitRemoveMsg)="getCount()"></app-passenger-card>

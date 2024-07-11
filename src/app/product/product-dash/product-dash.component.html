@@ -1,0 +1,13 @@
+<h2 class="p-2 bg-primary text-center text-white" style="border-radius: 5px;">Product Task Using Service </h2>
+<app-prod-form></app-prod-form>
+
+<div class="d-flex flex-column-reverse" *ngIf="productArr.length>0; else noProdData">
+    <app-prod-card *ngFor="let product of productArr" [getProductObj]="product"></app-prod-card>
+</div>
+<ng-template #noProdData>
+    <mat-card>
+        <p class="alert alert-warning">
+            No Product data added yet!!!
+        </p>
+    </mat-card>
+</ng-template>
